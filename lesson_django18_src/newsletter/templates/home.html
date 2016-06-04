@@ -8,22 +8,26 @@
 <!-- Main component for a primary marketing message or call to action -->
 {% block jumbotron_content %}
 <div class="jumbotron">
-    <h1>Hello there! example</h1>
-    <p>This example is a quick exercise to illustrate how the default, static and fixed to top navbar work. It includes the responsive CSS and HTML, so it also adapts to your viewport and device.</p>
-    <p>To see the difference between static and fixed top navbars, just scroll.</p>
-    <p>
-        <a class="btn btn-lg btn-primary" href="../../components/#navbar" role="button">View navbar docs &raquo;</a>
-    </p>
+    <div class="row">
+        <div class="col-sm-6">
+            <h1>Try Django 1.9</h1>
+            <p>The MVP Landing project is designed to get your project started. The goal is to help you launch as soon as possible with the least amount of investment using time or money. Join us today.</p>
+            <p>
+                <a class="btn btn-lg btn-primary" href="" role="button">Join us &raquo;</a>
+            </p>
+        </div>
+        <div class="col-sm-6" style="background-color:black;height:300px;">
+
+        </div>
+    </div>
 </div>
 {% endblock %}
 
 
 {% block content %}
 <div class="row">
-    <div class="col-sm-6 col-md-3">
-        <h1>{{ title }}</h1>
-        {{ user }}
-        {{ request.user }}
+    <div class="col-sm-3 pull-right">
+        <p class="lead">{{ title }}</h1>
 
         <!-- csrf_token es una medida de seguridad de django -->
         <form method='POST' action=''> {% csrf_token %}
@@ -31,6 +35,15 @@
 
             <input class='btn btn-primary' type='submit' value='Sign Up' />
         </form>
+    </div>
+    <div class="lead col-sm-3">
+        <p>Built with Django &amp; Bootstrap.</p>
+    </div>
+    <div class="lead col-sm-3">
+        <p>Created for Starters of all kinds.</p>
+    </div>
+    <div class="lead col-sm-3">
+        <p>Always open source.</p>
     </div>
 </div>
 
