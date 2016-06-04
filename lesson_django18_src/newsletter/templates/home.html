@@ -5,6 +5,13 @@
     Hello {{ block.super }}
 {% endblock %}
 
+<style>
+{% block style %}
+    /*Override aligning in lead class. A lot cleaner*/
+
+{% endblock %}
+</style>
+
 <!-- Main component for a primary marketing message or call to action -->
 {% block jumbotron_content %}
 <div class="jumbotron">
@@ -27,7 +34,7 @@
 {% block content %}
 <div class="row">
     <div class="col-sm-3 pull-right">
-        <p class="lead">{{ title }}</h1>
+        <p class="lead text-align-center">{{ title }}</h1>
 
         <!-- csrf_token es una medida de seguridad de django -->
         <form method='POST' action=''> {% csrf_token %}
@@ -36,13 +43,13 @@
             <input class='btn btn-primary' type='submit' value='Sign Up' />
         </form>
     </div>
-    <div class="lead col-sm-3">
+    <div class="lead text-align-center col-sm-3">
         <p>Built with Django &amp; Bootstrap.</p>
     </div>
-    <div class="lead col-sm-3">
+    <div class="lead text-align-center col-sm-3">
         <p>Created for Starters of all kinds.</p>
     </div>
-    <div class="lead col-sm-3">
+    <div class="lead text-align-center col-sm-3">
         <p>Always open source.</p>
     </div>
 </div>
