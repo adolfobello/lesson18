@@ -47,6 +47,7 @@ INSTALLED_APPS = [
 # Third parties second
     'crispy_forms',
 # My apps third
+    'lesson_django18',
     'newsletter',
 ]
 
@@ -66,7 +67,8 @@ ROOT_URLCONF = 'lesson_django18.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, "newsletter", "templates")],
+        'DIRS': [os.path.join(BASE_DIR, "templates"),
+                os.path.join(BASE_DIR, "newsletter", "templates")],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

@@ -17,11 +17,14 @@ from django.conf.urls import url
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
+import lesson_django18.views
 import newsletter.views
 
 urlpatterns = [
+    # regexp, app.file.function, url-name)
     url(r'^$', newsletter.views.home, name="home"),
     url(r'^contact/$', newsletter.views.contact, name="contact"),
+    url(r'^about/$', lesson_django18.views.about, name="about"),
     url(r'^admin/', admin.site.urls),
 ]
 
