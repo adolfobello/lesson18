@@ -28,11 +28,11 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 # FOR SENDING EMAILS
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'adolfobello@tuyoya.com'
-EMAIL_HOST_PASSWORD = 'Debe_Ser_La_Verdadera'
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
+EMAIL_HOST = 'mail.bisapi.com'
+EMAIL_HOST_USER = 'adolfobello@bisapi.com'
+#EMAIL_HOST_PASSWORD = 'Debe_Ser_La_Verdadera'
+EMAIL_PORT = 25
+EMAIL_USE_TLS = False
 
 # Application definition
 
@@ -42,10 +42,12 @@ INSTALLED_APPS = [
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
+    'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
 # Third parties second
     'crispy_forms',
+    'registration',
 # My apps third
     'lesson_django18',
     'newsletter',
@@ -146,4 +148,12 @@ STATICFILES_DIRS = [
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join( os.path.dirname(BASE_DIR), "static_in_env", "media_root")
 
+#Crispy for tags
 CRISPY_TEMPLATE_PACK ='bootstrap3'
+
+# Ver https://django-registration-redux.readthedocs.io/en/latest/quickstart.html
+ACCOUNT_ACTIVATION_DAYS = 7
+#REGISTRATION_DEFAULT_FROM_EMAIL
+#REGISTRATION_EMAIL_HTML=True
+REGISTRATION_AUTO_LOGIN = True
+SITE_ID = 1
