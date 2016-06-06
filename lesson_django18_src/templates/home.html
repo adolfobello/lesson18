@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% load crispy_forms_tags %}
-
+{% load staticfiles %}
 {% block head_title %}
     Hello {{ block.super }}
 {% endblock %}
@@ -30,8 +30,10 @@
                 <a class="btn btn-lg btn-primary" href="" role="button">Join us &raquo;</a>
             </p>
         </div>
-        <div class="col-sm-6" style="background-color:black;height:300px;">
-
+        <div class="col-sm-6">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/MJzxuG_MCmw" frameborder="0" allowfullscreen></iframe>
+        <!-- <img src="{% static 'img/beach.jpg' %}" class='img-responsive' /> -->
+        <!-- <img src="https://lh5.ggpht.com/X6S-3G1irwe649hOPWe2GYqcl4eSxK69r6Y1CGoC9oXk45MRwTTywpz0vdVoQS0_vVVX=h900" class='img-responsive'/> -->
         </div>
     </div>
 </div>
@@ -53,6 +55,7 @@
     </div>
     <div class="lead text-align-center col-sm-3">
         <p>Built with Django &amp; Bootstrap.</p>
+        <img src="{% static 'img/beach.jpg' %}" class='img-responsive' />
     </div>
     <div class="lead text-align-center col-sm-3">
         <p>Created for Starters of all kinds.</p>
