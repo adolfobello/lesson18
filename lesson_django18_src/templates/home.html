@@ -7,7 +7,13 @@
 
 <style>
 {% block style %}
-    /*Override aligning in lead class. A lot cleaner*/
+.navbar-static-top {
+  margin-bottom: 0px !important;
+}
+.jumbotron {
+    background-color: #1C5D3C;
+    color: white;
+}
 
 {% endblock %}
 </style>
@@ -15,6 +21,7 @@
 <!-- Main component for a primary marketing message or call to action -->
 {% block jumbotron %}
 <div class="jumbotron">
+    <div class="container">
     <div class="row">
         <div class="col-sm-6">
             <h1>Try Django 1.9</h1>
@@ -27,6 +34,7 @@
 
         </div>
     </div>
+</div>
 </div>
 {% endblock %}
 
