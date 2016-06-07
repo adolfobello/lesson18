@@ -20,6 +20,7 @@
 
 <!-- Main component for a primary marketing message or call to action -->
 {% block jumbotron %}
+{% if not request.user.is_authenticated %}
 <div class="jumbotron">
     <div class="container">
     <div class="row">
@@ -31,17 +32,39 @@
             </p>
         </div>
         <div class="col-sm-6">
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/MJzxuG_MCmw" frameborder="0" allowfullscreen></iframe>
-        <!-- <img src="{% static 'img/beach.jpg' %}" class='img-responsive' /> -->
-        <!-- <img src="https://lh5.ggpht.com/X6S-3G1irwe649hOPWe2GYqcl4eSxK69r6Y1CGoC9oXk45MRwTTywpz0vdVoQS0_vVVX=h900" class='img-responsive'/> -->
+            <!-- ## ESTO ES LA LOCURA.
+            ## POR ALGUNAS RAZON EL SIGUIENTE CODIGO NO FUNCIONA NI EN
+            ## SAFARI NI EN OPERA. PERFECTO EN CHROME Y SAFARI.
+            ## POR OTRA PARTE, AL PARECER WIDHT AND HEIGHT NO HACEN NADA.
+            ## PARA SER EXACTOS, LOS ELIMINE Y NO PASO NADA.
+            ## FINALMENTE, AUNQUE EL VIDEO ES 4X3 SE VE MEJOR USANDO 16X9!!!! -->
+            <div class="embed-responsive embed-responsive-16by9">
+                <video class="embed-responsive-item" src="{% static 'video/marcel.mp4' %}" type="video/mp4" controls>
+                    Your browser does not support the video tag
+                </video>
+            </div>
+            <!-- <div class="embed-responsive embed-responsive-16by9">
+                <iframe class="embed-responsive-item" src="{% static 'video/marcel.mp4' %}" allowfullscreen></iframe>
+            </div> -->
+            <!-- ## OTROS EJEMPLOS -->
+            <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/MJzxuG_MCmw" frameborder="0" allowfullscreen></iframe> -->
+            <!-- <iframe width="490" height="360" src="{% static 'video/marcel.mp4' %}" frameborder="0" allowfullscreen></iframe> -->
+            <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/yyTjy-dTg7E" frameborder="0" allowfullscreen></iframe> -->
+            <!-- <img src="{% static 'img/beach.jpg' %}" class='img-responsive' /> -->
+            <!-- <img src="https://lh5.ggpht.com/X6S-3G1irwe649hOPWe2GYqcl4eSxK69r6Y1CGoC9oXk45MRwTTywpz0vdVoQS0_vVVX=h900" class='img-responsive'/> -->
         </div>
     </div>
 </div>
 </div>
+{% endif %}
 {% endblock %}
 
-
 {% block content %}
+{% if request.user.is_authenticated %}
+    <h1>You are logged in!</h1>
+    {{ queryset }}
+{% else %}
+
 <div class="row">
     <div class="col-sm-3 pull-right">
         <p class="lead text-align-center">{{ title }}</h1>
@@ -54,11 +77,11 @@
         </form>
     </div>
     <div class="lead text-align-center col-sm-3">
-        <p>Built with Django &amp; Bootstrap.</p>
+        <p>Django &amp; Bootstrap</p>
         <img src="{% static 'img/beach.jpg' %}" class='img-responsive' />
     </div>
     <div class="lead text-align-center col-sm-3">
-        <p>Created for Starters of all kinds.<br/>
+        <p>Created for Starters<br/><br/>
             <span class="fa-stack fa-lg" style="font-size:3em;color:red;">
                 <i class="fa fa-comment-o fa-stack-2x"></i>
                 <i class="fa fa-bolt fa-1x" aria-hidden="true" style="color:blue;"></i>
@@ -67,13 +90,14 @@
 
     </div>
     <div class="lead text-align-center col-sm-3">
-        <p>Always open source.<br/><br/>
+        <p>Always open source<br/><br/>
             <span class="fa-stack fa-lg" style="font-size:3em;">
-                <i class="fa fa-circle-o-notch fa-spin fa-stack-2x"></i>
+                <i class="fa fa-circle-o-notch fa-stack-2x"></i>
                 <i class="fa fa-github fa-stack-1x"></i>
             </span>
         </p>
     </div>
 </div>
 
+{% endif %}
 {% endblock %}

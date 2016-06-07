@@ -5,18 +5,12 @@ from django.conf import settings
 
 # Create your views here.
 def home(request):
-    title = "Welcome"
-    # if request.user.is_authenticated():
-    #     title = "My Title %s" % (request.user)
-
-    # add a form
+    title = "Subscribe to our Newsletter"
     form = SignUpForm(request.POST or None)
-
     context = {
         "title": title,
         "form": form,
     }
-
     if form.is_valid():
         instance = form.save(commit=False)
 
@@ -30,6 +24,11 @@ def home(request):
         instance.save()
         context = {
             "title": "Thank you",
+        }
+
+    if request.user.is_authenticated() and request.user.is_staff:
+        context={
+            "queryset": [123, 456]
         }
 
     return render(request, "home.html", context)
