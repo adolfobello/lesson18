@@ -2,6 +2,7 @@ from django.shortcuts import render
 from .forms import ContactForm, SignUpForm
 from django.core.mail import send_mail
 from django.conf import settings
+from .models import SignUp
 
 # Create your views here.
 def home(request):
@@ -27,8 +28,13 @@ def home(request):
         }
 
     if request.user.is_authenticated() and request.user.is_staff:
+        #print(SignUp.objects.all() )    ## output to stdout
+        # for instance in SignUp.objects.all():
+        #     print(instance)
+        queryset = SignUp.objects.all().order_by('-timestamp') #.filter(full_name__icontains='Adolfo')
+        # print(SignUp.objects.all().order_by('-timestamp').filter(full_name__icontains='Adolfo').count())
         context={
-            "queryset": [123, 456]
+            "queryset": queryset
         }
 
     return render(request, "home.html", context)
